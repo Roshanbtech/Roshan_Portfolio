@@ -184,20 +184,8 @@ const ContactInput = styled.input`
   color: ${({ theme }) => theme.text_primary};
   border-radius: 12px;
   padding: 16px 20px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   &::placeholder {
     color: ${({ theme }) => theme.text_secondary}80;
-    font-weight: 400;
-  }
-  &:focus {
-    border-color: ${({ theme }) => theme.primary};
-    box-shadow: 
-      0 0 0 3px ${({ theme }) => theme.primary}20,
-      0 8px 25px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
-  }
-  &:hover {
-    border-color: ${({ theme }) => theme.primary}60;
   }
 `;
 
@@ -214,21 +202,6 @@ const ContactInputMessage = styled.textarea`
   padding: 16px 20px;
   min-height: 120px;
   resize: vertical;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  &::placeholder {
-    color: ${({ theme }) => theme.text_secondary}80;
-    font-weight: 400;
-  }
-  &:focus {
-    border-color: ${({ theme }) => theme.primary};
-    box-shadow: 
-      0 0 0 3px ${({ theme }) => theme.primary}20,
-      0 8px 25px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
-  }
-  &:hover {
-    border-color: ${({ theme }) => theme.primary}60;
-  }
 `;
 
 const ContactButton = styled(motion.button)`
@@ -242,41 +215,14 @@ const ContactButton = styled(motion.button)`
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  overflow: hidden;
   margin-top: 8px;
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.2),
-      transparent
-    );
-    transition: left 0.5s;
-  }
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 
-      0 10px 30px ${({ theme }) => theme.primary}40,
-      0 0 20px ${({ theme }) => theme.primary}30;
-    &::before {
-      left: 100%;
-    }
-  }
-  &:active {
-    transform: translateY(0px);
   }
   &:disabled {
     opacity: 0.7;
     cursor: not-allowed;
-    transform: none;
   }
 `;
 
@@ -299,6 +245,37 @@ const itemVariants = {
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(null);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitted(false);
+    setError(null);
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString(),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        form.reset();
+      } else {
+        setError("Submission failed. Please try again.");
+      }
+    } catch (err) {
+      setError("Something went wrong.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <Container id="Contact">
@@ -314,7 +291,7 @@ const Contact = () => {
           </motion.div>
           <motion.div variants={itemVariants}>
             <Desc>
-              Have a question or want to work together? I'd love to hear from you. 
+              Have a question or want to work together? I'd love to hear from you.
               Send me a message and I'll respond as soon as possible!
             </Desc>
           </motion.div>
@@ -323,7 +300,8 @@ const Contact = () => {
             name="contact"
             method="POST"
             data-netlify="true"
-            netlify-honeypot="bot-field"
+            data-netlify-honeypot="bot-field"
+            onSubmit={handleSubmit}
             variants={itemVariants}
             whileHover={{ y: -5 }}
             transition={{ duration: 0.3 }}
@@ -335,56 +313,30 @@ const Contact = () => {
 
             <FormGroup variants={itemVariants}>
               <Label htmlFor="name">Your Name</Label>
-              <ContactInput
-                id="name"
-                name="name"
-                type="text"
-                placeholder="Enter your full name"
-                required
-              />
+              <ContactInput id="name" name="name" type="text" required placeholder="Enter your full name" />
             </FormGroup>
 
             <FormGroup variants={itemVariants}>
               <Label htmlFor="email">Email Address</Label>
-              <ContactInput
-                id="email"
-                name="email"
-                type="email"
-                placeholder="your.email@example.com"
-                required
-              />
+              <ContactInput id="email" name="email" type="email" required placeholder="your.email@example.com" />
             </FormGroup>
 
             <FormGroup variants={itemVariants}>
               <Label htmlFor="subject">Subject</Label>
-              <ContactInput
-                id="subject"
-                name="subject"
-                type="text"
-                placeholder="What's this about?"
-                required
-              />
+              <ContactInput id="subject" name="subject" type="text" required placeholder="What's this about?" />
             </FormGroup>
 
             <FormGroup variants={itemVariants}>
               <Label htmlFor="message">Message</Label>
-              <ContactInputMessage
-                id="message"
-                name="message"
-                placeholder="Tell me more about your project, question, or just say hello!"
-                rows={5}
-                required
-              />
+              <ContactInputMessage id="message" name="message" required placeholder="Say hello or share your ideas!" />
             </FormGroup>
 
-            <ContactButton
-              type="submit"
-              disabled={isSubmitting}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              {isSubmitting ? 'Sending...' : 'Send Message'}
+            <ContactButton type="submit" disabled={isSubmitting}>
+              {isSubmitting ? "Sending..." : "Send Message"}
             </ContactButton>
+
+            {submitted && <p style={{ color: "limegreen", textAlign: "center" }}>✅ Message sent successfully!</p>}
+            {error && <p style={{ color: "crimson", textAlign: "center" }}>{error}</p>}
           </ContactForm>
         </Wrapper>
       </motion.div>
