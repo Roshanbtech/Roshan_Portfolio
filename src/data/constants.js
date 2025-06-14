@@ -266,7 +266,7 @@ export const education = [
     id: 1,
     img: "https://ceconline.edu/wp-content/uploads/2018/11/CEC-logo.png",
     school: "College of Engineering Chengannur, Kerala",
-    date: "Oct 2021 - Jun 2023",
+    date: "Aug 2019 - Jun 2023",
     grade: "7.7 CGPA",
     desc: "Completed core coursework in Electronics and Communication with a minor in Computer Science, laying a strong foundation in engineering principles and modern computing.",
     degree: "B.Tech in Electronics & Communication Engineering (Minor in CSE)"
