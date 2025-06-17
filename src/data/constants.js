@@ -402,6 +402,25 @@ export const projects = [
     ],
 },
 {
+  id: 9,
+  title: "Rocast",
+  date: "17 Jun 2025",
+  description: "A simple weather app using MERN stack",
+  image:"https://i.postimg.cc/BQykzVcB/image.png",
+  tags: [
+    "Next JS",
+    "Material UI",
+    "FVC",
+    "Node",
+    "Express",
+    "MongoDB",
+    "OpenWeather API",
+  ],
+  category: "mini",
+  github: "https://github.com/Roshanbtech/Rocast",
+  webapp:"https://rocast.vercel.app/"
+},
+{
   id: 3,
   title: "Todo Syncra",
   date: "Sep 2024",
