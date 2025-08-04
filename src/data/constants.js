@@ -383,7 +383,7 @@ export const projects = [
     "JWT",
     "Context"
   ],
-  category: "mini",
+  category: "major",
   github: "https://dishtv.tisankan.dev/",
   webapp: "https://dishtv.tisankan.dev/",
   member: [
