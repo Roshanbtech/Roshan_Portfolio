@@ -499,6 +499,42 @@ export const projects = [
   category: "mini",
   github: "https://github.com/Roshanbtech/DocsR",
   webapp: "https://docs-r.vercel.app/"
+},
+{
+  id: 10,
+  title:"RoshFlix",
+  date:"July 2025",
+  description:"A cyberpunk-themed movie search app powered by React, TailwindCSS, and OMDb API.Search, browse, and save movies in a neon-glow interface.",
+  image:"https://i.postimg.cc/T2nD4sYB/image.png",
+  tags: [
+    "React",
+    "Tailwind CSS",
+    "Custom Hooks",
+    "OMDb API",
+    "Context API"
+  ],
+  category: "mini",
+  github: "https://github.com/Roshanbtech/RoshFlix",
+  webapp:"https://rosh-flix.vercel.app/"
+},
+{
+  id: 11,
+  title:"Teacher-Management-App",
+  date:"June 2025",
+  description:"A modern, responsive, and user-friendly application for managing teachers, schedules, and qualifications in schools or institutes.",
+  image:"https://i.postimg.cc/Nj0hnWY4/image.png",
+  tags: [
+    "Next.js",
+    "Tailwind CSS",
+    "React",
+    "TypeScript",
+    "Lucide Icons",
+    "Vercel"
+  ],
+  category: "mini",
+  github: "https://github.com/Roshanbtech/teacher-management-app",
+  webapp:"https://teacher-management-app-tau.vercel.app/"
+
 }
 
  
