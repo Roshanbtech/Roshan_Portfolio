@@ -4,8 +4,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "../../data/constants";
 
 const glowPulse = keyframes`
-  0%, 100% { text-shadow: 0 0 20px rgba(139, 69, 255, 0.8), 0 0 40px rgba(139, 69, 255, 0.6); }
-  50% { text-shadow: 0 0 30px rgba(139, 69, 255, 1), 0 0 60px rgba(139, 69, 255, 0.8); }
+  0%, 100% { box-shadow: 0 0 4px rgba(167, 112, 239, 0.4); }
+  50% { box-shadow: 0 0 8px rgba(167, 112, 239, 0.6); }
 `;
 
 const fadeInUp = keyframes`
@@ -274,6 +274,7 @@ const Image = styled.img`
   box-shadow: 0 0 16px 2px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  object-fit: cover;
   
   &:hover {
     transform: scale(1.05);
@@ -281,6 +282,33 @@ const Image = styled.img`
   
   @media (max-width: 768px) {
     height: 150px;
+  }
+`;
+
+const TitleContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+`;
+
+const StackBadge = styled.span`
+  display: inline-flex;
+  align-items: center;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 10px;
+  background: linear-gradient(120deg, #a770ef 0%, #fd6e6a 100%);
+  color: #fff;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  flex-shrink: 0;
+  animation: ${glowPulse} 3s infinite;
+  
+  @media (max-width: 768px) {
+    font-size: 9px;
+    padding: 2px 6px;
   }
 `;
 
@@ -338,13 +366,15 @@ const ProjectTitle = styled.div`
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
+  line-height: 1.3;
 `;
 
 const Date = styled.div`
   font-size: 12px;
   margin-left: 2px;
   font-weight: 400;
-  color: ${({ theme }) => theme.text_secondary + 80};
+  color: ${({ theme }) => theme.text_secondary + '80'};
+  margin-top: 4px;
   
   @media only screen and (max-width: 768px) {
     font-size: 10px;
@@ -353,7 +383,7 @@ const Date = styled.div`
 
 const Description = styled.div`
   font-weight: 400;
-  color: ${({ theme }) => theme.text_secondary + 99};
+  color: ${({ theme }) => theme.text_secondary + '99'};
   overflow-y: auto;
   margin-top: 8px;
   display: -webkit-box;
@@ -396,6 +426,7 @@ const Avatar = styled.img`
   background-color: ${({ theme }) => theme.white};
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border: 3px solid ${({ theme }) => theme.card};
+  object-fit: cover;
   
   &:first-child {
     margin-left: 0px;
@@ -525,7 +556,10 @@ const ProjectCardComponent = ({ project }) => {
         ))}
       </Tags>
       <Details>
-        <ProjectTitle>{project.title}</ProjectTitle>
+        <TitleContainer>
+          <ProjectTitle>{project.title}</ProjectTitle>
+          {project.stack && <StackBadge>{project.stack}</StackBadge>}
+        </TitleContainer>
         <Date>{project.date}</Date>
         <Description>{project.description}</Description>
         {project.member && (

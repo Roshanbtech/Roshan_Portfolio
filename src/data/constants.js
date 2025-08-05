@@ -20,6 +20,7 @@ export const Bio = {
 export const skills = [
   {
     title: "Languages",
+    bgGif: "https://media.giphy.com/media/cigiby3LjC9m1Vf4Y4/giphy.gif",
     skills: [
      {
         name: "JavaScript",
@@ -45,6 +46,7 @@ export const skills = [
   },
   {
     title: "Frontend",
+    bgGif: "https://media.giphy.com/media/8kq2UZwUlyHdDcMESl/giphy.gif",
     skills: [
       {
         name: "HTML",
@@ -86,6 +88,7 @@ export const skills = [
   },
   {
     title: "Backend",
+    bgGif: "https://media.giphy.com/media/t098S40uz27TJ8HQKu/giphy.gif",
     skills: [
       {
         name: "Node Js",
@@ -104,6 +107,7 @@ export const skills = [
   },
   {
     title: "Databases",
+    bgGif: "https://media.giphy.com/media/t7X0ugyWbvfskGIRWe/giphy.gif",
     skills: [
        {
         name: "Postgresql",
@@ -123,6 +127,7 @@ export const skills = [
   },
   {
     title: "Cloud & DevOps",
+    bgGif: "https://media.giphy.com/media/TKDiRhJtWl7E5USlMq/giphy.gif",
     skills: [
       {
         name: "AWS",
@@ -154,6 +159,7 @@ export const skills = [
  
   {
     title: "Others",
+    bgGif: "https://media.giphy.com/media/7a20309gkAUz5gifBW/giphy.gif",
     skills: [
       {
         name: "Git",
@@ -178,7 +184,7 @@ export const skills = [
       {
         name: "Postman",
         image:
-          "https://static-00.iconduck.com/assets.00/postman-icon-497x512-beb7sy75.png",
+          "https://i.postimg.cc/KYLJK9Yd/image.png",
       },
       {
         name: "Figma",
@@ -317,6 +323,7 @@ export const projects = [
     "S3 Bucket",
   ],
   category: "major",
+  stack: "Full Stack",
   github: "https://github.com/Roshanbtech/Healio", 
   webapp: "https://healio-bapl.vercel.app/", 
 },
@@ -339,6 +346,7 @@ export const projects = [
     "MVC Architecture"
   ],
   category: "major",
+  stack: "Full Stack",
   github: "https://github.com/Roshanbtech/RMHUB",
   webapp: "https://github.com/Roshanbtech/RMHUB"
 },
@@ -362,15 +370,16 @@ export const projects = [
     "TypeScript"
   ],
   category: "major",
+  stack: "Full Stack",
   github: "https://github.com/Roshanbtech/Extractify",
   webapp: "https://extractify-91.vercel.app/"
 },
 {
   id: 8,
-  title: "Dstv Distributor",
+  title: "DDTv Distributor",
   date: "May 2025 - Jun 2025",
   description:
-      "A full-stack app that lets to manage the distributor of Dstv",
+      "A full-stack app that lets to manage the distributor of DDTv channels,recharges, customers,bills and so on.",
   image:"https://i.postimg.cc/zfdFCBkj/image.png",
   tags: [
     "React",
@@ -384,6 +393,7 @@ export const projects = [
     "Context"
   ],
   category: "major",
+  stack: "Full Stack",
   github: "https://dishtv.tisankan.dev/",
   webapp: "https://dishtv.tisankan.dev/",
   member: [
@@ -417,6 +427,7 @@ export const projects = [
     "OpenWeather API",
   ],
   category: "mini",
+  stack: "Full Stack",
   github: "https://github.com/Roshanbtech/Rocast",
   webapp:"https://rocast.vercel.app/"
 },
@@ -432,6 +443,7 @@ export const projects = [
     "CSS",
   ],
   category: "mini",
+  stack: "Frontend",
   github: "https://github.com/Roshanbtech/Todo_Syncra",
   webapp: "https://todo-syncra.vercel.app/"
 },
@@ -450,6 +462,7 @@ export const projects = [
     "Firebase"
   ],
   category: "mini",
+  stack: "Frontend",
   github: "https://github.com/Roshanbtech/Netflix-clone-react",
   webapp: "https://netflix-clone-three-wine-23.vercel.app/"
 },
@@ -466,6 +479,7 @@ export const projects = [
     "JS"
   ],
   category: "mini",
+  stack: "Frontend",
   github: "https://github.com/Roshanbtech/RM-Player",
   webapp: "https://rm-player.vercel.app/"
 },
@@ -482,6 +496,7 @@ export const projects = [
     "JavaScript",
   ],
   category: "mini",
+  stack: "Frontend",
   github: "https://github.com/Roshanbtech/starbucks",
   webapp: "https://starbucks-orcin-iota.vercel.app/"
 },
@@ -497,6 +512,7 @@ export const projects = [
     "Framer Motion"
   ],
   category: "mini",
+  stack: "Frontend",
   github: "https://github.com/Roshanbtech/DocsR",
   webapp: "https://docs-r.vercel.app/"
 },
@@ -514,6 +530,7 @@ export const projects = [
     "Context API"
   ],
   category: "mini",
+  stack: "Frontend",
   github: "https://github.com/Roshanbtech/RoshFlix",
   webapp:"https://rosh-flix.vercel.app/"
 },
@@ -532,6 +549,7 @@ export const projects = [
     "Vercel"
   ],
   category: "mini",
+  stack: "Frontend",
   github: "https://github.com/Roshanbtech/teacher-management-app",
   webapp:"https://teacher-management-app-tau.vercel.app/"
 

@@ -266,6 +266,31 @@ const SkillImage = styled.img`
   }
 `;
 
+const GifBackground = styled.div`
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+  border-radius: 20px;
+  opacity: 0.65; // <<--- Make GIF more visible (try 0.5–0.7)
+  background: ${({ bg }) => bg ? `url(${bg}) center/cover no-repeat` : 'none'};
+  pointer-events: none;
+  filter: none; // <<--- No blur or grayscale
+`;
+
+const CardOverlay = styled.div`
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(
+    to bottom right,
+    rgba(17, 25, 40, 0.28) 65%,  // <<--- Lower opacity here (0.18–0.3)
+    rgba(139, 69, 255, 0.08) 100%
+  );
+  border-radius: 20px;
+  z-index: 1;
+  pointer-events: none;
+`;
+
+
 const FloatingElements = styled.div`
   position: absolute;
   width: 100%;
@@ -310,30 +335,22 @@ const Skills = () => {
 
         <SkillsContainer>
           {skills.map((skill, index) => (
-            <Tilt
-              key={skill.title}
-              options={{
-                max: 15,
-                scale: 1.05,
-                speed: 400,
-              }}
-            >
-              <SkillCard style={{ '--index': index }}>
-                <SkillTitle>{skill.title}</SkillTitle>
-                <SkillList>
-                  {skill.skills.map((item) => (
-                    <SkillItem key={item.name}>
-                      <SkillImage 
-                        src={item.image} 
-                        alt={item.name} 
-                        loading="lazy" 
-                      />
-                      {item.name}
-                    </SkillItem>
-                  ))}
-                </SkillList>
-              </SkillCard>
-            </Tilt>
+            <Tilt key={skill.title} options={{ max: 15, scale: 1.05, speed: 400 }}>
+  <SkillCard style={{ '--index': index }}>
+    {skill.bgGif && <GifBackground bg={skill.bgGif} />}
+    <CardOverlay />
+    <SkillTitle>{skill.title}</SkillTitle>
+    <SkillList>
+      {skill.skills.map((item) => (
+        <SkillItem key={item.name}>
+          <SkillImage src={item.image} alt={item.name} loading="lazy" />
+          {item.name}
+        </SkillItem>
+      ))}
+    </SkillList>
+  </SkillCard>
+</Tilt>
+
           ))}
         </SkillsContainer>
       </Wrapper>

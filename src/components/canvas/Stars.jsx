@@ -14,10 +14,21 @@ const StyledCanvasWrapper = styled.div`
 const Stars = React.memo((props) => {
   const ref = useRef();
   
-  const sphere = useMemo(() => 
-    random.inSphere(new Float32Array(5000), { radius: 1.2 }), 
-    []
-  );
+  const NUM_POINTS = 6000; // any multiple of 3!
+const sphere = useMemo(() => {
+  const arr = random.inSphere(new Float32Array(NUM_POINTS), { radius: 1.2 });
+  if (!arr.length) {
+    console.warn("Stars: Empty array returned from inSphere!");
+  }
+  if (arr.some((v) => !Number.isFinite(v))) {
+    console.warn("Stars: Non-finite (NaN/Infinity) value detected in star positions array!");
+  }
+  if (arr.length % 3 !== 0) {
+    console.warn("Stars: Array length is not a multiple of 3! Points will break.");
+  }
+  return arr;
+}, []);
+
 
   useFrame((state, delta) => {
     if (ref.current) {
