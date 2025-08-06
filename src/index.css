@@ -11,7 +11,11 @@
 body {
   margin: 0; 
   padding: 0;
-  font-family: "Poppins", sans-serif; /* Change to Poppins if you want it everywhere */
+  font-family: "Poppins", sans-serif;
+}
+
+body,html {
+    cursor: none !important;
 }
 
 /* Custom Scrollbar */
@@ -37,5 +41,5 @@ body {
 
 /* Backdrop Filter (Safari/Chrome) */
 ::webkit-backdrop-filter {
-  blur: 3px saturate(106%);
+  fill: 3px saturate(106%);
 }

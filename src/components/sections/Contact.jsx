@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { motion } from "framer-motion";
+import StarCanvas from "../canvas/Stars";
 
 const fadeInUp = keyframes`
   from { opacity: 0; transform: translateY(30px); }
@@ -279,6 +280,7 @@ const Contact = () => {
 
   return (
     <Container id="Contact">
+      <StarCanvas />
       <motion.div
         variants={containerVariants}
         initial="hidden"

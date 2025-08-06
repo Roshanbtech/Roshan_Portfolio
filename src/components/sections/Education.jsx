@@ -6,6 +6,8 @@ import { motion } from "framer-motion";
 import { education } from "../../data/constants";
 import EducationCard from "../cards/EducationCard";
 import EarthCanvas from "../canvas/Earth";
+import { InteractiveGridPattern }from "../canvas/Grid";
+import Meteors from "../canvas/Meteors";
 
 // Animations
 const fadeInUp = keyframes`
@@ -167,6 +169,8 @@ const itemVariants = {
 const Education = () => {
   return (
     <Container id="Education">
+      <InteractiveGridPattern />
+      <Meteors number={24} color="#8b45ff" angle={220} />
       <motion.div
         variants={containerVariants}
         initial="hidden"

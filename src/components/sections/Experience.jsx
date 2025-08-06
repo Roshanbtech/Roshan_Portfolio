@@ -5,6 +5,7 @@ import styled, { keyframes } from "styled-components";
 import { motion } from "framer-motion";
 import { experiences } from "../../data/constants";
 import ExperienceCard from "../cards/ExperienceCard";
+import StarCanvas from "../canvas/Stars";
 
 const glowPulse = keyframes`
   0%, 100% {
@@ -216,8 +217,8 @@ const itemVariants = {
 const Experience = () => {
   return (
     <Container id="Experience">
+      <StarCanvas />
       <BackgroundElements />
-      
       <motion.div
         variants={containerVariants}
         initial="hidden"

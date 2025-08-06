@@ -256,6 +256,14 @@ export const experiences = [
     ],
     doc: "https://media.licdn.com/dms/image/v2/C4D0BAQEWqmtyVtZl7Q/company-logo_100_100/company-logo_100_100/0/1653839709668/brototype_logo?e=1755129600&v=beta&t=8_WL1r1NfEyLKzLj2C0fX9_30KoIScO-P9yyX7-7jEU",
   },
+  {
+    id: 1,
+    img: "https://i.postimg.cc/SN7HyXR1/xdy6a42f.png",
+    role: "MERN Stack Development",
+    company: "MainFlow Technologies",
+    date: "July 2025 - Present",
+    desc: "Build basic web applications using MERN stack.",
+  }
 ];
 
 export const education = [
@@ -376,7 +384,7 @@ export const projects = [
 },
 {
   id: 8,
-  title: "DDTv Distributor",
+  title: "DDTv",
   date: "May 2025 - Jun 2025",
   description:
       "A full-stack app that lets to manage the distributor of DDTv channels,recharges, customers,bills and so on.",
@@ -393,7 +401,7 @@ export const projects = [
     "Context"
   ],
   category: "major",
-  stack: "Full Stack",
+  stack: "Full Stack - Freelance",
   github: "https://dishtv.tisankan.dev/",
   webapp: "https://dishtv.tisankan.dev/",
   member: [
@@ -409,6 +417,9 @@ export const projects = [
         linkedin: "https://www.linkedin.com/in/roshan-reji-96951722b/",
         github: "https://github.com/Roshanbtech",
       },
+      {
+        img: "https://i.postimg.cc/3xGkVBWD/w2a6cec9.png"
+      }
     ],
 },
 {

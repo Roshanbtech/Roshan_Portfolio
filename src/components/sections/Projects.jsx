@@ -2,6 +2,8 @@ import React, { useState, useMemo } from "react";
 import styled, { keyframes } from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "../../data/constants";
+import Meteors from "../canvas/Meteors";
+import { InteractiveGridPattern } from "../canvas/Grid";
 
 const glowPulse = keyframes`
   0%, 100% { box-shadow: 0 0 4px rgba(167, 112, 239, 0.4); }
@@ -588,6 +590,8 @@ const Projects = () => {
 
   return (
     <Container id="Projects">
+      <InteractiveGridPattern />
+      <Meteors number={24} color="#8b45ff" angle={220} />
       <motion.div
         variants={containerVariants}
         initial="hidden"

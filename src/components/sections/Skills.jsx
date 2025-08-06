@@ -2,6 +2,8 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import { skills } from "../../data/constants";
 import { Tilt } from "react-tilt";
+import Meteors from "../canvas/Meteors";
+import { InteractiveGridPattern } from "../canvas/Grid";
 
 const glowPulse = keyframes`
   0%, 100% {
@@ -327,6 +329,8 @@ const Skills = () => {
   return (
     <Container id="Skills">
       <FloatingElements />
+        <InteractiveGridPattern />
+        <Meteors number={24} color="#8b45ff" angle={220} />
       <Wrapper>
         <Title>Skills</Title>
         <Desc>

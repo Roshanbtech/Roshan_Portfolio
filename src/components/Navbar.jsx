@@ -61,15 +61,16 @@ const Nav = styled.nav`
   transition: all 0.3s ease;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, 
-      rgba(139, 69, 255, 0.05), 
-      rgba(255, 0, 110, 0.03), 
+    background: linear-gradient(
+      135deg,
+      rgba(139, 69, 255, 0.05),
+      rgba(255, 0, 110, 0.03),
       rgba(139, 69, 255, 0.02)
     );
     opacity: 0.8;
@@ -113,11 +114,16 @@ const NavLogo = styled(LinkR)`
 
   span {
     margin-left: 12px;
-    font-family: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: "Space Grotesk", "Inter", -apple-system, BlinkMacSystemFont,
+      sans-serif;
     font-size: 1.5rem;
     font-weight: 800;
     letter-spacing: -0.02em;
-    background: linear-gradient(135deg, ${({ theme }) => theme.text_primary}, ${({ theme }) => theme.primary});
+    background: linear-gradient(
+      135deg,
+      ${({ theme }) => theme.text_primary},
+      ${({ theme }) => theme.primary}
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -126,7 +132,7 @@ const NavLogo = styled(LinkR)`
 
   &:hover {
     transform: translateY(-2px);
-    
+
     img {
       animation-duration: 2s;
       transform: scale(1.1);
@@ -164,7 +170,7 @@ const NavItems = styled.ul`
 `;
 
 const NavLink = styled.a`
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   color: ${({ theme }) => theme.text_primary}CC;
   font-weight: 500;
   font-size: 16px;
@@ -175,13 +181,17 @@ const NavLink = styled.a`
   padding: 8px 0;
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -2px;
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(135deg, ${({ theme }) => theme.primary}, #FF006E);
+    background: linear-gradient(
+      135deg,
+      ${({ theme }) => theme.primary},
+      #ff006e
+    );
     transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border-radius: 1px;
   }
@@ -189,7 +199,7 @@ const NavLink = styled.a`
   &:hover {
     color: ${({ theme }) => theme.text_primary};
     transform: translateY(-2px);
-    
+
     &::after {
       width: 100%;
     }
@@ -210,54 +220,56 @@ const ButtonContainer = styled.div`
 `;
 
 const GithubButton = styled.a`
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  
+
   min-width: 140px;
   padding: 12px 24px;
-  
-  background: linear-gradient(135deg, #8B45FF 0%, #FF006E 50%, #8B45FF 100%);
+
+  background: linear-gradient(135deg, #8b45ff 0%, #ff006e 50%, #8b45ff 100%);
   background-size: 200% 200%;
   border-radius: 50px;
   border: 2px solid transparent;
-  
+
   font-weight: 600;
   font-size: 14px;
   color: white;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   text-decoration: none;
-  
+
   position: relative;
   overflow: hidden;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  
-  box-shadow: 
-    0 4px 16px rgba(139, 69, 255, 0.3),
-    0 2px 8px rgba(0, 0, 0, 0.2);
+
+  box-shadow: 0 4px 16px rgba(139, 69, 255, 0.3), 0 2px 8px rgba(0, 0, 0, 0.2);
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
     transition: left 0.6s;
   }
 
   &:hover {
     transform: translateY(-2px) scale(1.02);
     background-position: 100% 0;
-    box-shadow: 
-      0 8px 24px rgba(139, 69, 255, 0.4),
+    box-shadow: 0 8px 24px rgba(139, 69, 255, 0.4),
       0 4px 12px rgba(0, 0, 0, 0.3);
-    
+
     &::before {
       left: 100%;
     }
@@ -304,8 +316,8 @@ const MobileMenuOverlay = styled.div`
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(5px);
   z-index: 999;
-  opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
-  visibility: ${({ isOpen }) => (isOpen ? 'visible' : 'hidden')};
+  opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
+  visibility: ${({ $isOpen }) => ($isOpen ? "visible" : "hidden")};
   transition: all 0.3s ease;
 `;
 
@@ -323,24 +335,25 @@ const MobileMenu = styled.div`
   gap: 16px;
   border-radius: 20px 0 0 20px;
   border: 1px solid rgba(139, 69, 255, 0.2);
-  box-shadow: 
-    0 16px 40px rgba(139, 69, 255, 0.15),
+  box-shadow: 0 16px 40px rgba(139, 69, 255, 0.15),
     0 8px 24px rgba(0, 0, 0, 0.3);
-  transform: ${({ isOpen }) => isOpen ? "translateX(0)" : "translateX(100%)"};
+  transform: ${({ $isOpen }) =>
+    $isOpen ? "translateX(0)" : "translateX(100%)"};
+  animation: ${({ $isOpen }) => ($isOpen ? slideDown : "none")} 0.3s ease;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1000;
-  animation: ${({ isOpen }) => isOpen ? slideDown : 'none'} 0.3s ease;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, 
-      rgba(139, 69, 255, 0.08), 
-      rgba(255, 0, 110, 0.05), 
+    background: linear-gradient(
+      135deg,
+      rgba(139, 69, 255, 0.08),
+      rgba(255, 0, 110, 0.05),
       rgba(139, 69, 255, 0.03)
     );
     border-radius: 20px 0 0 20px;
@@ -352,11 +365,11 @@ const MobileMenu = styled.div`
   }
 
   ${NavLink} {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
     padding: 14px 0;
     border-bottom: 1px solid rgba(139, 69, 255, 0.15);
     font-size: 16px;
-    
+
     &:last-of-type {
       border-bottom: none;
     }
@@ -373,14 +386,18 @@ const MobileMenuHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 16px;
-  
+
   h3 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     color: ${({ theme }) => theme.text_primary};
     margin: 0;
     font-size: 1.2rem;
     font-weight: 700;
-    background: linear-gradient(135deg, ${({ theme }) => theme.text_primary}, ${({ theme }) => theme.primary});
+    background: linear-gradient(
+      135deg,
+      ${({ theme }) => theme.text_primary},
+      ${({ theme }) => theme.primary}
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -420,7 +437,7 @@ const Navbar = () => {
             <span>Roshan</span>
           </NavLogo>
 
-          <MobileIcon 
+          <MobileIcon
             onClick={toggleMenu}
             aria-label="Toggle navigation menu"
             aria-expanded={isOpen}
@@ -429,15 +446,29 @@ const Navbar = () => {
           </MobileIcon>
 
           <NavItems>
-            <li><NavLink href="#About">About</NavLink></li>
-            <li><NavLink href="#Skills">Skills</NavLink></li>
-            <li><NavLink href="#Experience">Experience</NavLink></li>
-            <li><NavLink href="#Projects">Projects</NavLink></li>
-            <li><NavLink href="#Education">Education</NavLink></li>
+            <li>
+              <NavLink href="#About">About</NavLink>
+            </li>
+            <li>
+              <NavLink href="#Skills">Skills</NavLink>
+            </li>
+            <li>
+              <NavLink href="#Experience">Experience</NavLink>
+            </li>
+            <li>
+              <NavLink href="#Projects">Projects</NavLink>
+            </li>
+            <li>
+              <NavLink href="#Education">Education</NavLink>
+            </li>
           </NavItems>
 
           <ButtonContainer>
-            <GithubButton href={Bio.github} target="_blank" rel="noopener noreferrer">
+            <GithubButton
+              href={Bio.github}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src={githubIcon} alt="GitHub Icon" />
               Github
             </GithubButton>
@@ -447,18 +478,18 @@ const Navbar = () => {
 
       {isOpen && (
         <>
-          <MobileMenuOverlay isOpen={isOpen} onClick={closeMenu} />
-          <MobileMenu isOpen={isOpen}>
+          <MobileMenuOverlay $isOpen={isOpen} onClick={closeMenu} />
+          <MobileMenu $isOpen={isOpen}>
             <MobileMenuHeader>
               <h3>Navigation</h3>
-              <CloseButton 
+              <CloseButton
                 onClick={closeMenu}
                 aria-label="Close navigation menu"
               >
                 <Close />
               </CloseButton>
             </MobileMenuHeader>
-            
+
             <NavLink href="#About" onClick={closeMenu}>
               About
             </NavLink>
@@ -480,8 +511,8 @@ const Navbar = () => {
               rel="noopener noreferrer"
               style={{
                 background: `linear-gradient(135deg, ${theme.primary} 0%, #FF006E 100%)`,
-                marginTop: '12px',
-                fontSize: '13px'
+                marginTop: "12px",
+                fontSize: "13px",
               }}
             >
               <img src={githubIcon} alt="GitHub Icon" />
